@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-// import defaultStyles from './button.module.css';
+import './button.css';
 // import { Icon } from 'semantic-ui-react';
 
-interface ButtonProps {
+export interface ButtonProps {
 	type?: 'button' | 'submit' | 'reset' | undefined;
 	styles?: string | any;
 	handleClick?: any;
@@ -31,6 +31,7 @@ const Button: FC<ButtonProps> = ({
 		// className={`${defaultStyles.base} ${styles} ${disabled && defaultStyles.disabled} ${
 		// 	topMargin && defaultStyles.margin_top
 		// }`}
+		className={`base ${disabled && 'disabled'}`}
 		disabled={disabled}
 	>
 		<span style={image ? { marginRight: 12 } : {}}>{`${text} `}</span>
