@@ -29,6 +29,7 @@
     "@testing-library/react": "^13.3.0",
     "@types/jest": "^28.1.8",
     "@types/react": "^18.0.17",
+    "@types/styled-components": "^5.1.26",
     "babel-jest": "^28.1.3",
     "babel-loader": "^8.2.5",
     "identity-obj-proxy": "^3.0.0",
@@ -50,6 +51,7 @@
     "registry": "https://npm.pkg.github.com/dylanmasschelein"
   },
   "dependencies": {
-    "jest-environment-jsdom": "^28.1.3"
+    "jest-environment-jsdom": "^28.1.3",
+    "styled-components": "^5.3.5"
   }
 }
