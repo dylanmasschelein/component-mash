@@ -1,6 +1,6 @@
 {
   "name": "@dylanmasschelein/component-mash",
-  "version": "0.0.3",
+  "version": "0.0.8",
   "description": "Custom component library",
   "scripts": {
     "rollup": "rollup -c",
@@ -37,7 +37,9 @@
     "react": "^18.2.0",
     "rollup": "^2.78.1",
     "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.7.4",
     "typescript-plugin-css-modules": "^3.4.0"
   },
@@ -51,6 +53,8 @@
     "registry": "https://npm.pkg.github.com/dylanmasschelein"
   },
   "dependencies": {
+    "@rollup/plugin-babel": "^5.3.1",
+    "babel-plugin-styled-components": "^2.0.7",
     "jest-environment-jsdom": "^28.1.3",
     "styled-components": "^5.3.5"
   }
