@@ -1,23 +1,27 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button from './Button';
+import Form from './Form';
+import Input from '../Input';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-	title: 'componentMash/Button',
-	component: Button
+	title: 'componentMash/Form',
+	component: Form
 	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof Form>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = args => <Button {...args}>Hello World</Button>;
+const Template: ComponentStory<typeof Form> = args => (
+	<Form {...args}>
+		<Input placeholder="Hello" />
+		<Input placeholder="Bro" />
+	</Form>
+);
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-	onClick: () => console.log('fuck ya')
-};
+Primary.args = {};
 
 export const Secondary = Template.bind({});
 Secondary.args = {

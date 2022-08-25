@@ -5,7 +5,6 @@ type ButtonProps<T extends ElementType> = {
 	renderAs?: keyof JSX.IntrinsicElements['button'];
 	isLoading?: boolean;
 	isCompleted?: boolean;
-	disabled?: boolean;
 	secondary?: boolean;
 	children: ReactNode;
 } & ComponentPropsWithoutRef<T>;

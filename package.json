@@ -1,6 +1,6 @@
 {
   "name": "@dylanmasschelein/component-mash",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Custom component library",
   "scripts": {
     "rollup": "rollup -c",

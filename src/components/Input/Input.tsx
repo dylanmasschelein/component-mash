@@ -1,29 +1,25 @@
-import React, { FC } from 'react';
-import './input.css';
+import React, { ElementType, ComponentPropsWithoutRef } from 'react';
+import * as Styled from './input.styles';
 
-interface InputProps {
-	type?: 'text' | 'password' | 'email' | 'tel';
-	manuelOveride?: any; // Obj
-	value: string;
-	name: string;
-	onChange: any;
-	label?: string;
+type InputProps<T extends ElementType> = {
+	renderAs?: keyof JSX.IntrinsicElements['input'];
+	isRequired?: boolean;
 	errors?: any;
-	required?: boolean;
-}
+	secondary?: boolean;
+	name?: string;
+} & ComponentPropsWithoutRef<T>;
 
-const Input: FC<InputProps> = ({ type, required, manuelOveride, value, name, onChange, label, errors }) => (
+const Input = <T extends ElementType = 'input'>({
+	renderAs,
+	isRequired,
+	errors,
+	secondary = false,
+	name,
+	...rest
+}: InputProps<T>): JSX.Element => (
 	<>
-		<input
-			type={type || 'text'}
-			placeholder={label || ''}
-			className={`input`}
-			style={{ ...manuelOveride }}
-			value={value}
-			name={name}
-			onChange={onChange}
-		/>
-		{errors?.[name] && <p className="input_error">{errors[name]}</p>}
+		<Styled.Input as={renderAs} {...rest} isRequired secondary={secondary} name={name} />
+		{name && errors?.[name] && <Styled.Error>{errors[name]}</Styled.Error>}
 	</>
 );
 
