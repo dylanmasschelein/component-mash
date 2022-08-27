@@ -4,9 +4,11 @@ module.exports = {
         "@babel/preset-react",
         "@babel/preset-typescript",
     ],
-    "plugins": ['babel-plugin-styled-components', {
-        namespace: 'appname-',
-        displayName: false,
-        fileName: false
-    }]
+    "plugins": [
+        ["babel-plugin-styled-components", {
+            "namespace": "appname-",
+            "displayName": false,
+            "fileName": false
+        }]
+    ]
 };
