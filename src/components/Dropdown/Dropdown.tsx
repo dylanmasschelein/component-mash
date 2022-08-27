@@ -48,19 +48,14 @@ const DropDownHeader = styled('div')`
 const DropDownListContainer = styled('div')``;
 
 const DropDownList = styled('ul')`
-	padding: 0;
+	padding: 0.5rem 1rem;
 	margin: 0;
-	padding-left: 1rem;
-	padding-bottom: 0.2rem;
 	background: #ffffff;
 	outline: 1px solid #e5e5e5;
 	box-sizing: border-box;
 	font-size: 1.3rem;
 	font-weight: 500;
 	transition: 0.3s;
-	&:first-child {
-		padding-top: 0.8em;
-	}
 `;
 
 const ListItem = styled('li')`
