@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 interface IProps {
 	secondary: boolean;
 	isLoading?: boolean;
+	width?: string;
 }
 
 type ButtonProps<T extends ElementType> = {
@@ -12,6 +13,7 @@ type ButtonProps<T extends ElementType> = {
 	isCompleted?: boolean;
 	secondary?: boolean;
 	children: ReactNode;
+	width?: string;
 } & ComponentPropsWithoutRef<T>;
 
 // 💡 In generic the HTML type of component will be specified. And by default it is button
@@ -21,6 +23,7 @@ const Button = <T extends ElementType = 'button'>({
 	isCompleted,
 	children,
 	secondary,
+	width = '',
 	...rest
 }: ButtonProps<T>): JSX.Element => {
 	return (
@@ -29,6 +32,7 @@ const Button = <T extends ElementType = 'button'>({
 			isLoading={isLoading}
 			secondary={secondary || false}
 			isCompleted={isCompleted}
+			width={width}
 			{...rest}
 		>
 			{children}
@@ -70,8 +74,12 @@ const StyledButton = styled('button')<IProps>`
 	transition: 0.3s;
 	cursor: pointer;
 
-	/* The GitHub button is a primary button
-   * edit this to target it specifically! */
+	${({ width }) =>
+		width &&
+		css`
+			width: ${width};
+		`}
+
 	${props =>
 		props.secondary &&
 		css`

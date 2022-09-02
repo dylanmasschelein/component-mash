@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Form from './Form';
 import Input from '../Input';
+import Button from '../Button';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,6 +17,7 @@ const Template: ComponentStory<typeof Form> = args => (
 	<Form {...args}>
 		<Input placeholder="Hello" />
 		<Input placeholder="Bro" />
+		<Button>Submit</Button>
 	</Form>
 );
 

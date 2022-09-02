@@ -34,6 +34,7 @@ const StyledInput = styled('input')<IProps>`
 	border-radius: 6px;
 	border: 1px solid #9a9a9a3d;
 	margin: 0.5rem 0;
+	width: 95%;
 
 	&:focus-visible {
 		outline: forestgreen;

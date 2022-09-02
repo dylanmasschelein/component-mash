@@ -5,19 +5,22 @@ type FormProps<T extends ElementType> = {
 	secondary?: boolean;
 	children: ReactNode;
 	noShadow?: boolean;
+	width?: string;
 } & ComponentPropsWithoutRef<T>;
 
 interface IProps {
 	secondary: boolean;
 	noShadow: boolean;
+	width?: string;
 }
 
 const Form = <T extends ElementType = 'form'>({
 	secondary = false,
 	children,
-	noShadow = false
+	noShadow = false,
+	width = ''
 }: FormProps<T>): JSX.Element => (
-	<StyledForm secondary={secondary} noShadow={noShadow}>
+	<StyledForm secondary={secondary} noShadow={noShadow} width={width}>
 		{children}
 	</StyledForm>
 );
@@ -33,6 +36,12 @@ const StyledForm = styled('form')<IProps>`
     padding 1rem 0;
     border-radius: 6px;
 	box-shadow: 0px -1px 17px rgba(0, 0, 0, 0.25);
+
+	${({ width }) =>
+		width &&
+		css`
+			width: ${width};
+		`}
 
     ${props =>
 		props.noShadow &&
