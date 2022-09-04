@@ -14,6 +14,7 @@ type ButtonProps<T extends ElementType> = {
 	secondary?: boolean;
 	children: ReactNode;
 	width?: string;
+	color?: string;
 } & ComponentPropsWithoutRef<T>;
 
 // 💡 In generic the HTML type of component will be specified. And by default it is button
@@ -23,6 +24,7 @@ const Button = <T extends ElementType = 'button'>({
 	isCompleted,
 	children,
 	secondary,
+	color = '',
 	width = '',
 	...rest
 }: ButtonProps<T>): JSX.Element => {
@@ -33,6 +35,7 @@ const Button = <T extends ElementType = 'button'>({
 			secondary={secondary || false}
 			isCompleted={isCompleted}
 			width={width}
+			color={color}
 			{...rest}
 		>
 			{children}
@@ -66,7 +69,7 @@ const StyledButton = styled('button')<IProps>`
 	padding: 0.5rem 0;
 	margin: 0.5rem 1rem;
 	width: 11rem;
-	background: forestgreen;
+	background: #8a2be2;
 	color: white;
 	border: none;
 	font-weight: 700;
@@ -78,6 +81,12 @@ const StyledButton = styled('button')<IProps>`
 		width &&
 		css`
 			width: ${width};
+		`}
+
+	${({ color }) =>
+		color &&
+		css`
+			background: ${color};
 		`}
 
 	${props =>
