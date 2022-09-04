@@ -16,7 +16,7 @@ interface IProps {
 	width: string;
 }
 
-const Input = <T extends ElementType = 'input'>({
+const InlineInput = <T extends ElementType = 'input'>({
 	renderAs,
 	isRequired,
 	errors,
@@ -38,7 +38,7 @@ const Input = <T extends ElementType = 'input'>({
 	</>
 );
 
-export default Input;
+export default InlineInput;
 
 const StyledMainDiv = styled('div')`
 	display: flex;
