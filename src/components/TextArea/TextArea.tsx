@@ -41,7 +41,7 @@ const StyledTextArea = styled('textarea')<IProps>`
 	border: 1px solid #9a9a9a3d;
 	min-height: 6rem;
 	max-height: 12rem;
-	max-width: 100%;
+	width: 100%;
 
 	&:focus-visible {
 		outline: forestgreen;

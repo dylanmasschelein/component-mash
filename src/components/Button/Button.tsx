@@ -67,7 +67,7 @@ const StyledButton = styled('button')<IProps>`
 	align-items: center;
 	border-radius: 6px;
 	padding: 0.5rem 0;
-	margin: 0.5rem 1rem;
+	margin: 1rem;
 	width: 11rem;
 	background: #8a2be2;
 	color: white;

@@ -1,14 +1,11 @@
-import { render } from '@testing-library/react';
 import React, { ElementType, ComponentPropsWithoutRef } from 'react';
 import styled, { css } from 'styled-components';
 
-type InputProps<T extends ElementType> = {
-	renderAs?: keyof JSX.IntrinsicElements['input'];
+type TextArea<T extends ElementType> = {
 	isRequired?: boolean;
 	errors?: any;
+	secondary?: boolean;
 	name?: string;
-	color?: string;
-	width?: string;
 } & ComponentPropsWithoutRef<T>;
 
 interface IProps {
@@ -16,34 +13,31 @@ interface IProps {
 }
 
 interface IDivProps {
-	width: string;
 	error: boolean;
 	color?: string;
 }
 
-const InlineInput = <T extends ElementType = 'input'>({
-	renderAs,
+const TextArea = <T extends ElementType = 'input'>({
 	isRequired,
 	errors,
 	name,
 	color = '',
-	width = '',
 	placeholder,
 	...rest
-}: InputProps<T>): JSX.Element => (
+}: TextArea<T>): JSX.Element => (
 	<>
-		<StyledMainDiv width={width} error={Boolean(name && errors?.[name])} color={color}>
+		<StyledMainDiv error={Boolean(name && errors?.[name])} color={color}>
 			<StyledLabel>
 				{placeholder}
 				{isRequired && <RequiredSpan>*</RequiredSpan>}
 			</StyledLabel>
-			<StyledInput as={renderAs} {...rest} isRequired name={name} />
+			<StyledTextarea {...rest} isRequired name={name} />
 		</StyledMainDiv>
 		{name && errors?.[name] && <StyledError>{errors[name]}</StyledError>}
 	</>
 );
 
-export default InlineInput;
+export default TextArea;
 
 const StyledMainDiv = styled('div')<IDivProps>`
 	display: flex;
@@ -111,7 +105,7 @@ const StyledError = styled('p')`
 		`}
 `;
 
-const StyledInput = styled('input')<IProps>`
+const StyledTextarea = styled('textarea')<IProps>`
 	outline: none;
 	border: none;
 	padding: 2px 0 0 0;

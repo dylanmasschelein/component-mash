@@ -1,24 +1,23 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import InlineInput from './InlineInput';
+import InlineTextArea from './InlineTextArea';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-	title: 'componentMash/InlineInput',
-	component: InlineInput
+	title: 'componentMash/InlineTextArea',
+	component: InlineTextArea
 	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<typeof InlineInput>;
+} as ComponentMeta<typeof InlineTextArea>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof InlineInput> = args => <InlineInput type="textarea" {...args} />;
+const Template: ComponentStory<typeof InlineTextArea> = args => <InlineTextArea {...args} />;
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-	placeholder: 'min price',
+	placeholder: 'About',
 	name: 'georgie',
-	// errors: { georgie: 'needs to be min 8 chars' },
 	onChange: (e: any) => console.log(e.target.value, 'hmm', e.target.name)
 };
 
